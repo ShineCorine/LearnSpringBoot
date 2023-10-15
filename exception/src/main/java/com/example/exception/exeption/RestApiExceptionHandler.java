@@ -38,24 +38,18 @@ public class RestApiExceptionHandler {
     }
 
     @ExceptionHandler(value = {NoSuchElementException.class})
-    public Api noSuchElement(
+    public ResponseEntity<Api> noSuchElement(
             NoSuchElementException e
     ){
         log.error("", e);
 
-        return Api.builder()
+        var response = Api.builder()
                 .resultCode(String.valueOf(HttpStatus.NOT_FOUND.value()))
                 .resultMessage(HttpStatus.NOT_FOUND.getReasonPhrase())
                 .build()
                 ;
-
-        /* 예상 결과값
-        {
-            "result_code": "404",
-            "result_message": "Not Found",
-            "data": null
-}
-        }
-         */
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(response);
     }
 }
