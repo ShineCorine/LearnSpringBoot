@@ -1,6 +1,7 @@
 package com.example.validation.controller;
 
 
+import com.example.validation.model.Api;
 import com.example.validation.model.UserRegisterRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,11 +17,11 @@ import javax.validation.Valid;
 public class UserApiController {
 
     @PostMapping("")
-    public UserRegisterRequest register(
+    public Api<UserRegisterRequest> register(
 
         @Valid
         @RequestBody
-        UserRegisterRequest userRegisterRequest
+        Api<UserRegisterRequest> userRegisterRequest
     ){
         log.info("init : {}", userRegisterRequest);
 
