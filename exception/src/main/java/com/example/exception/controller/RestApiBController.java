@@ -22,11 +22,11 @@ public class RestApiBController {
     //ExceptionHanlder 어노테이션을 달면 해당 컨트롤러 내에서 예욀르 캐치한다.
     // 만약 없으면 이 예제에서는 RestApiExceptionHandler 에서 정의된 핸들러로 가게 된다.
     // 그렇지만 컨트럴로 코드가 길어지면 추천하지 않고 exception handler를 만들어 따로 지정해줄 수 있다.
-    @ExceptionHandler(value = {NumberFormatException.class})
+    /*@ExceptionHandler(value = {NumberFormatException.class})
     public ResponseEntity numberFormatException(
             NumberFormatException e
     ){
         log.error("NumberFormatException", e);
         return ResponseEntity.ok().build();
-    }
+    }*/
 }

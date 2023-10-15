@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 
 @Slf4j
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "com.example.exception.controller")
+//com.example.exception.exeption; 하위의 예외는 해당 컨트롤러가 잡겠다는 어노테이션
 public class RestApiExceptionHandler {
 
 
