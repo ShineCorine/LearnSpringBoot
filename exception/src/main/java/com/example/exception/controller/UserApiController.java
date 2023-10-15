@@ -3,6 +3,7 @@ package com.example.exception.controller;
 
 import com.example.exception.model.Api;
 import com.example.exception.model.UserResponse;
+import org.springframework.boot.context.config.ConfigDataNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,6 +40,11 @@ public class UserApiController {
     public Api<UserResponse> getUser(
             @PathVariable String userId
     ){
+        // test를 위해 아무 에러나 임의로 발생
+        if(true) {
+            throw new RuntimeException("Message");
+        }
+
         var user = userList.stream()
                 .filter(it -> it.getId().equals(userId)
                 )
