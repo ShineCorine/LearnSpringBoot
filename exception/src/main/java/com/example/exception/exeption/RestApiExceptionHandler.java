@@ -1,6 +1,8 @@
 package com.example.exception.exeption;
 
 
+import com.example.exception.controller.RestApiBController;
+import com.example.exception.controller.RestApiController;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -8,8 +10,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 
 @Slf4j
-@RestControllerAdvice(basePackages = "com.example.exception.controller")
-//com.example.exception.exeption; 하위의 예외는 해당 컨트롤러가 잡겠다는 어노테이션
+@RestControllerAdvice(basePackageClasses = {RestApiController.class, RestApiBController.class})
+//클래스를 지정하여 예외를 처리하는 방법
 public class RestApiExceptionHandler {
 
 
